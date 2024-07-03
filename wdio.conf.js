@@ -49,11 +49,18 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    }],
 
+    // new changes for host.
+    // capabilities: [{
+    //     // capabilities for local browser web tests
+    //     browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+    // }],
+    capabilities: [{
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: ['--headless', '--disable-gpu'] // Enable headless mode for Chrome
+        }
+    }],
     //
     // ===================
     // Test Configurations
