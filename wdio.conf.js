@@ -1,3 +1,4 @@
+import video from "wdio-video-reporter";
 export const config = {
     //
     // ====================
@@ -51,16 +52,16 @@ export const config = {
     //
 
     // new changes for host.
-    // capabilities: [{
-    //     // capabilities for local browser web tests
-    //     browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    // }],
     capabilities: [{
-        browserName: 'chrome',
-        'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu'] // Enable headless mode for Chrome
-        }
+        // capabilities for local browser web tests
+        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
     }],
+    // capabilities: [{
+    //     browserName: 'chrome',
+    //     'goog:chromeOptions': {
+    //         args: ['--headless', '--disable-gpu'] // Enable headless mode for Chrome
+    //     }
+    // }],
     //
     // ===================
     // Test Configurations
@@ -132,10 +133,19 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     // reporters: ['spec'],
-    reporters: ['spec', ['video', {
-        saveAllVideos: true,        // If true, also save videos for successful test cases
-        videoSlowdownMultiplier: 3, // Higher value means slower videos
-    }]],
+
+    //THIS IS COMMENT PART ----> 
+    // reporters: ['spec', ['video', {
+    //     saveAllVideos: true,        // If true, also save videos for successful test cases
+    //     videoSlowdownMultiplier: 3, // Higher value means slower videos
+    // }]],
+
+    reporters: [
+        [video, {
+            saveAllVideos: true,       // Save videos for all tests, not only failed ones.
+            videoSlowdownMultiplier: 3 // Slows down the video for better viewing.
+        }]
+    ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
