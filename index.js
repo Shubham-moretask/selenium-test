@@ -28,7 +28,6 @@
 // })
 
 
-
 import express from "express";
 import { exec } from 'child_process';
 import path from 'path';
@@ -36,7 +35,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000; // Use the port provided by the hosting service
 
 // Define __dirname using import.meta.url
 const __filename = fileURLToPath(import.meta.url);
