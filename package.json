@@ -12,6 +12,9 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
+    "puppeteer": "^22.12.1",
+    "puppeteer-recorder": "^1.0.7",
+    "puppeteer-screen-recorder": "^3.0.3",
     "wdio-video-reporter": "^5.2.0",
     "webdriverio": "^8.39.0"
   }

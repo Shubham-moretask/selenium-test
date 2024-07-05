@@ -1,33 +1,54 @@
-// import express from "express";
-// import { exec } from 'child_process';
-// const app =express();
-// const port =5000;
+// const puppeteer = require('puppeteer');
+// const Recorder = require('puppeteer-recorder');
 
 
 
-// // Handle POST requests to trigger login script
-// app.post('/runtest', (_req, res) => {
-//     // Execute WebDriverIO script using child_process
-//     exec('npx wdio run ./wdio.conf.js --spec test.e2e.js', (error, stdout, stderr) => {
-//         if (error) {
-//             console.error(`Error executing WebDriverIO script: ${error.message}`);
-//             res.status(500).send('Internal Server Error');
-//             return;
-//         }
-//         if (stderr) {
-//             console.error(`WebDriverIO script stderr: ${stderr}`);
-//         }
-//         console.log(`WebDriverIO script stdout: ${stdout}`);
-//         res.status(200).send('Login script executed successfully');
-//     });
-// });
+//fine code for local -----------> 
+
+// import puppeteer from 'puppeteer';
+// import { PuppeteerScreenRecorder } from 'puppeteer-screen-recorder';
+
+// async function runLoginTest() {
+//   const browser = await puppeteer.launch({ headless: true });
+//   const page = await browser.newPage();
+//   const recorder = new PuppeteerScreenRecorder(page);
+
+//   try {
+//     // Navigate to the login page
+//     await page.goto('https://www.feedants.com/#/');
+
+//     // Start recording
+//     const videoPath = `./testcase-${Date.now()}.mp4`;
+//     await recorder.start(videoPath);
+
+//     // Enter username
+//     await page.type('#field-1', 'sk9664150090@gmail.com');
+
+//     // Enter password
+//     await page.type('#field-2', 'Intern@123');
+
+//     // Click the login button
+//     await page.click('button[type="button"]');
+
+//     // Wait for navigation to the dashboard or some element that confirms login
+//     await page.waitForNavigation();
+
+//     // Stop recording
+//     await recorder.stop();
+
+//     console.log(`Test completed. Video saved at: ${videoPath}`);
+//   } catch (err) {
+//     console.error('Error during login test:', err);
+//   } finally {
+//     await browser.close();
+//   }
+// }
+
+// runLoginTest();
 
 
-// app.listen(port ,()=>{
-//     console.log(`Server is running at port : ${port}`);
-// })
 
-
+//-->
 import express from 'express';
 import puppeteer from 'puppeteer';
 import { PuppeteerScreenRecorder } from 'puppeteer-screen-recorder';
