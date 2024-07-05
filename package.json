@@ -6,13 +6,19 @@
     "@wdio/mocha-framework": "^8.39.0",
     "@wdio/spec-reporter": "^8.39.0"
   },
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "npx puppeteer install"
+  },
   "dependencies": {
     "@wdio/cli": "^8.39.0",
     "@wdio/selenium-standalone-service": "^8.15.0",
+    "chrome-aws-lambda": "^10.1.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
     "puppeteer": "^22.12.1",
+    "puppeteer-core": "^22.12.1",
     "puppeteer-recorder": "^1.0.7",
     "puppeteer-screen-recorder": "^3.0.3",
     "wdio-video-reporter": "^5.2.0",
