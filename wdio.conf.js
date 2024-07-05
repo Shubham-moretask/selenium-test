@@ -52,29 +52,15 @@ export const config = {
     //
 
     // new changes for host.
-    // capabilities: [{
-    //     // capabilities for local browser web tests
-    //     browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    // }],
-
-
-
-
     capabilities: [{
-        maxInstances: 1,
-        browserName: 'chrome',
-        'goog:chromeOptions': {
-            args: [
-                '--headless',
-                '--disable-gpu',
-                '--window-size=1280,800',
-                '--no-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-setuid-sandbox',
-                '--disable-extensions'
-            ]
-        }
+        // capabilities for local browser web tests
+        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
     }],
+
+
+
+
+
 
     //
     // ===================
