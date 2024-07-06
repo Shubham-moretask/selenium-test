@@ -1,12 +1,13 @@
 services:
   - type: web
-    name: puppeteer-login-test
+    name: selenium-test
     env: node
-    buildCommand: 'npm install'
-    startCommand: 'npm start'
-    envVars:
-      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
-        value: 'true'
-      - key: NODE_ENV
-        value: 'production'
-    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y wget gnupg --no-install-recommends \
+      && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+      && sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
+      && apt-get update && apt-get install -y google-chrome-stable --no-install-recommends \
+      && apt-get purge --auto-remove -y curl gnupg \
+      && rm -rf /var/lib/apt/lists/* \
+      && npm install
+    startCommand: npm start
